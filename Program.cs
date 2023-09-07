@@ -11,7 +11,7 @@ internal class Program
             Console.Clear();
             Console.WriteLine("1. Agregar Estudiante");
             Console.WriteLine("2. Agregar notas al Estudiante");
-            Console.WriteLine("3. Mostrar informacion del Estudiante");
+            Console.WriteLine("3. Mostrar informacion Estudiantes");
             Console.WriteLine("4. Mostrar notas finales del Estudiante");
             Console.WriteLine("5. Salir");
             val = Convert.ToInt16(Console.ReadLine());
@@ -22,7 +22,6 @@ internal class Program
                     {
                         estudiantes.Add(AddStudent());
                         Console.WriteLine("¿Desea Agregar otro estudiante? si(Y) no(N)");
-                        
                     } while (Console.ReadLine().ToUpper() == "Y");
                     break;
                 case 2:
@@ -30,9 +29,11 @@ internal class Program
                     break;
                 case 3:
                     Console.Clear();
+                    Console.WriteLine("{0,-36} {1,-30} {2,-30} {3,-30} {4,-30}","Codigo","Nombre","Quices","Trabajos","Parciales");
+                    // Console.WriteLine("{0,-36} {1,-30} {2,3}","Q1","Q2","Q3","Q4","Parciales");
                     foreach (Estudiante est in estudiantes)
                     {
-                        Console.WriteLine("{0,-36} {1,-30} {2,3}",est.Nombre);
+                        Console.WriteLine("{0,-36} {1,-30}",est.Id,est.Nombre);
                     }
                     Console.ReadKey();
                     break;

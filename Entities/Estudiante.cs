@@ -6,7 +6,7 @@ namespace ejercicio1.Entities;
         private string email;
         private int edad;
         private string direccion;
-
+        
         public string Id
         {
             get{ return id; }
