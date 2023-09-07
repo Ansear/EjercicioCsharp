@@ -1,0 +1,14 @@
+C:\Users\APM02-40\Documents\Csharp\ejercicio1\bin\Debug\net7.0\ejercicio1.exe
+C:\Users\APM02-40\Documents\Csharp\ejercicio1\bin\Debug\net7.0\ejercicio1.deps.json
+C:\Users\APM02-40\Documents\Csharp\ejercicio1\bin\Debug\net7.0\ejercicio1.runtimeconfig.json
+C:\Users\APM02-40\Documents\Csharp\ejercicio1\bin\Debug\net7.0\ejercicio1.dll
+C:\Users\APM02-40\Documents\Csharp\ejercicio1\bin\Debug\net7.0\ejercicio1.pdb
+C:\Users\APM02-40\Documents\Csharp\ejercicio1\obj\Debug\net7.0\ejercicio1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\APM02-40\Documents\Csharp\ejercicio1\obj\Debug\net7.0\ejercicio1.AssemblyInfoInputs.cache
+C:\Users\APM02-40\Documents\Csharp\ejercicio1\obj\Debug\net7.0\ejercicio1.AssemblyInfo.cs
+C:\Users\APM02-40\Documents\Csharp\ejercicio1\obj\Debug\net7.0\ejercicio1.csproj.CoreCompileInputs.cache
+C:\Users\APM02-40\Documents\Csharp\ejercicio1\obj\Debug\net7.0\ejercicio1.dll
+C:\Users\APM02-40\Documents\Csharp\ejercicio1\obj\Debug\net7.0\refint\ejercicio1.dll
+C:\Users\APM02-40\Documents\Csharp\ejercicio1\obj\Debug\net7.0\ejercicio1.pdb
+C:\Users\APM02-40\Documents\Csharp\ejercicio1\obj\Debug\net7.0\ejercicio1.genruntimeconfig.cache
+C:\Users\APM02-40\Documents\Csharp\ejercicio1\obj\Debug\net7.0\ref\ejercicio1.dll
