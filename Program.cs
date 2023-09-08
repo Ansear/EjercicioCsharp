@@ -55,15 +55,65 @@ internal class Program
 
     public static Estudiante AddStudent(){
         Console.Clear();
+        bool ban;
         Estudiante estudiante = new Estudiante();
-        Console.WriteLine("Ingrese Id del Estudiante");
-        estudiante.Id =  Console.ReadLine();
-        Console.WriteLine("Ingrese Nombre del Estudiante");
-        estudiante.Nombre = Console.ReadLine();
-        Console.WriteLine("Ingrese Email del Estudiante");
-        estudiante.Email = Console.ReadLine();
+        do
+        {
+            Console.WriteLine("Ingrese Id del Estudiante");
+            string ide = Console.ReadLine();
+            if(ide.Length>0 && ide.Length<=15){
+                estudiante.Id = ide;
+                ban = false;
+            }else{
+                Console.Clear();
+                Console.WriteLine("Id del Estudiante mayor a 15 caracteres");
+                ban = true;
+            }
+        } while (ban);
+        do
+        {
+            Console.WriteLine("Ingrese Nombre del Estudiante");
+            
+            string nom = Console.ReadLine();
+            if(nom.Length>0 && nom.Length<=40){
+                estudiante.Nombre = nom;
+                ban= false;
+            }else{
+                Console.Clear();
+                Console.WriteLine("Nombre mayor a 40 caracteres, intente nuevamente");
+                ban = true;
+            }
+        } while (ban);
+        do
+        {
+            Console.WriteLine("Ingrese Email del Estudiante");
+            
+            string email = Console.ReadLine();
+            if (email.Length>0 && email.Length<=40){
+                estudiante.Email = email;
+                ban = false;
+            }else{
+                Console.Clear();
+                Console.WriteLine("Email mayor a 40 caracteres, intente nuevamente");
+                ban = true;
+            }
+        } while (ban);
         Console.WriteLine("Ingrese Edad del Estudiante");
-        estudiante.Edad = int.Parse(Console.ReadLine());    
+        estudiante.Edad = Convert.ToInt32(Console.ReadLine());
+        do
+        {
+            Console.WriteLine("Ingrese Direccion del Estudiante");
+            string dire = Console.ReadLine();
+            if (dire.Length>0 && dire.Length<=35){
+                estudiante.Direccion = dire;    
+                ban = false;
+            }else{
+                Console.Clear();
+                Console.WriteLine("Direccion mayor a 35 caracteres, intente nuevamente");
+                ban = true;
+            }
+        } while (ban);
+        
         return estudiante;
     }
 }
