@@ -16,61 +16,62 @@ internal class Program
             Console.WriteLine("3. Mostrar informacion Estudiantes");
             Console.WriteLine("4. Mostrar notas finales del Estudiante");
             Console.WriteLine("5. Salir");
-            val = Convert.ToInt16(Console.ReadLine());
-            switch (val)
-            {
-                case 1:
-                    do
-                    {
-                        AddStudent(estudiantes,notas);
-                        Console.WriteLine("¿Desea Agregar otro estudiante? si(Y) no(N)");
-                    } while (Console.ReadLine().ToUpper() == "Y");
-                    break;
-                case 2:
-                    AddNotas(notas);
-                    break;
-                case 3:
-                    Console.Clear();
-                    Console.WriteLine("{0,-36} {1,-30} {2,-30} {3,-30} {4,-30}","Codigo","Nombre","Quices","Trabajos","Parciales");
-                    // Console.WriteLine("{0,-36} {1,-30} {2,3}","Q1","Q2","Q3","Q4","Parciales");
-                    foreach (Estudiante est in estudiantes)
-                    {
-                        Console.WriteLine("{0,-36} {1,-30}",est.Id,est.Nombre);
-                    }
-                    Console.ReadKey();
-                    break;
-                case 4:
-                    Console.Clear();
-                    foreach (NotasEstu item in notas)
-                    {
-                        Console.WriteLine(item.IdEstudiante);
-                        
-                            foreach (int vak in item.Quices)
-                            {        
-                                Console.WriteLine(vak);
-                            }
-                            foreach (int vak in item.Parciales)
-                            {        
-                                Console.WriteLine(vak);
-                            }
-                            foreach (int vak in item.Trabajos)
-                            {        
-                                Console.WriteLine(vak);
-                            }
+            //try{
+                val = Convert.ToInt16(Console.ReadLine());
+                switch (val)
+                {
+                    case 1:
+                        do
+                        {
+                            AddStudent(estudiantes,notas);
+                            Console.WriteLine("¿Desea Agregar otro estudiante? si(Y) no(N)");
+                        } while (Console.ReadLine().ToUpper() == "Y");
+                        break;
+                    case 2:
+                        AddNotas(notas);
+                        break;
+                    case 3:
+                        ShowStudents(estudiantes,notas);
+                        break;
+                    case 4:
+                        Console.Clear();
+                        foreach (NotasEstu item in notas)
+                        {
+                            Console.WriteLine(item.IdEstudiante);
+                            
+                                foreach (int vak in item.Quices)
+                                {        
+                                    Console.WriteLine(vak);
+                                }
+                                foreach (int vak in item.Parciales)
+                                {        
+                                    Console.WriteLine(vak);
+                                }
+                                foreach (int vak in item.Trabajos)
+                                {        
+                                    Console.WriteLine(vak);
+                                }
 
-                    }
+                        }
 
-                    Console.ReadKey();
-                    break;
-                case 5:
-                    Console.WriteLine("Gracias por usar el programa");
-                    Console.ReadKey();
-                    Console.Clear();
-                    break;
-                default:
-                    Console.WriteLine("Valor Invalidad");
-                    break;
-            }
+                        Console.ReadKey();
+                        break;
+                    case 5:
+                        Console.WriteLine("Gracias por usar el programa");
+                        Console.ReadKey();
+                        Console.Clear();
+                        break;
+                    default:
+                        Console.Clear();
+                        Console.WriteLine("Valor Invalidado");
+                        Console.ReadLine();
+                        break;
+                }
+            // }catch(FormatException){
+            //     Console.Clear();
+            //     Console.WriteLine("Dato ingresado invalido");
+            //     Console.ReadLine();
+            // }
         } while (val != 5);
     }
 
@@ -184,12 +185,42 @@ internal class Program
         
     }
 
+    public static void ShowStudents(List<Estudiante> estudiantes, List<NotasEstu> notas){
+        Console.Clear();
+        Console.WriteLine("{0,-28} {1,-25} {2,-12} {3,-12} {4,-30}","Codigo","Nombre","Quices","Trabajos","Parciales");
+        Console.WriteLine("{0,55} {1,2} {2,2} {3,-5} {4,3} {5,-8} {6,2} {7,2} {8,2}","Q1","Q2","Q3","Q4","T1","T2","P1","P2","P3");
+        foreach (Estudiante est in estudiantes)
+        {
+            List<int> q = new List<int>(4);
+            List<int> t = new List<int>(2);
+            List<int> p = new List<int>(3);
+            foreach (NotasEstu item in notas)
+            {
+                if(item.IdEstudiante == est.Id){
+                    foreach (int e in item.Quices)
+                    {
+                        q.Add(e);
+                    }
+                    foreach (int e in item.Trabajos)
+                    {
+                        t.Add(e);
+                    }
+                    foreach (int e in item.Parciales)
+                    {
+                        t.Add(e);
+                    }
+                }
+            }
+            Console.WriteLine("{0,} {1,}{2,} {3,}{4,} {5,} {0,} {1,}{2,} {3,}{4,} {5,}",est.Id,q[0],q[1],q[2],q[3],t[0],t[1],p[0],p[1],p[2]);
+        }
+        Console.ReadKey();
+    }
+
     public static void AddQuices(NotasEstu notasQ){
         if(notasQ.Quices.Count()<4){
                 int toNo = notasQ.Quices.Count();
                 Console.WriteLine($"Agregar notas del Quiz {toNo+1}");
-                int va1 = Convert.ToInt16(Console.ReadLine());
-                notasQ.Quices.Add(va1);
+                notasQ.Quices.Add(Convert.ToInt16(Console.ReadLine()));
         }else{
             Console.WriteLine("Las notas de Quices ya estan completas");
         }
@@ -197,9 +228,8 @@ internal class Program
     public static void AddTrabajos(NotasEstu notasQ){
         if(notasQ.Trabajos.Count()<2){
                 int toNo = notasQ.Trabajos.Count();
-                Console.WriteLine($"Agregar notas del Quiz {toNo+1}");
-                int va1 = Convert.ToInt16(Console.ReadLine());
-                notasQ.Trabajos[toNo] = va1;
+                Console.WriteLine($"Agregar notas del Trabajo {toNo+1}");
+                notasQ.Trabajos.Add(Convert.ToInt16(Console.ReadLine()));
         }else{
             Console.WriteLine("Las notas de Trabajos ya estan completas");
         }
@@ -207,9 +237,8 @@ internal class Program
     public static void AddParciales(NotasEstu notasQ){
         if(notasQ.Parciales.Count()<3){
                 int toNo = notasQ.Parciales.Count();
-                Console.WriteLine($"Agregar notas del Quiz {toNo+1}");
-                int va1 = Convert.ToInt16(Console.ReadLine());
-                notasQ.Parciales[toNo] = va1;
+                Console.WriteLine($"Agregar notas del Parciales {toNo+1}");
+                notasQ.Parciales.Add(Convert.ToInt16(Console.ReadLine()));
         }else{
             Console.WriteLine("Las notas de Parciales ya estan completas");
         }
