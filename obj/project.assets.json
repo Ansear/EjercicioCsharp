@@ -8,19 +8,19 @@
     "net7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\APM02-40\\.nuget\\packages\\": {}
+    "C:\\Users\\sebas\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\APM02-40\\Documents\\Csharp\\ejercicio1\\ejercicio1.csproj",
+      "projectUniqueName": "C:\\Users\\sebas\\Documents\\Programacion\\Campus\\Csharp\\EjercicioCsharp\\ejercicio1.csproj",
       "projectName": "ejercicio1",
-      "projectPath": "C:\\Users\\APM02-40\\Documents\\Csharp\\ejercicio1\\ejercicio1.csproj",
-      "packagesPath": "C:\\Users\\APM02-40\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\APM02-40\\Documents\\Csharp\\ejercicio1\\obj\\",
+      "projectPath": "C:\\Users\\sebas\\Documents\\Programacion\\Campus\\Csharp\\EjercicioCsharp\\ejercicio1.csproj",
+      "packagesPath": "C:\\Users\\sebas\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\sebas\\Documents\\Programacion\\Campus\\Csharp\\EjercicioCsharp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\APM02-40\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\sebas\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"

@@ -3,22 +3,22 @@ namespace EjercicioCsharp.Entities;
     public class NotasEstu
     {
         private string idEstudiante;
-        private List<int> quices = new List<int>(4);
-        private List<int> trabajos = new List<int>(2);
-        private List<int> parciales = new List<int>(3);
+        private List<float> quices = new List<float>(4);
+        private List<float> trabajos = new List<float>(2);
+        private List<float> parciales = new List<float>(3);
         public string IdEstudiante{
             get{ return idEstudiante;}
             set{ idEstudiante = value;}
         }
-        public List<int> Quices{
+        public List<float> Quices{
             get{ return quices;}
             set{ quices = value;}
         }
-        public List<int> Trabajos{
+        public List<float> Trabajos{
             get{ return trabajos;}
             set{ trabajos = value;}
         }
-        public List<int> Parciales{
+        public List<float> Parciales{
             get{ return parciales;}
             set{ parciales = value;}
         }
@@ -27,7 +27,7 @@ namespace EjercicioCsharp.Entities;
         {
 
         }
-        public NotasEstu(string idEstudiante,List<int> quices, List<int> trabajos,List<int> parciales)
+        public NotasEstu(string idEstudiante,List<float> quices, List<float> trabajos,List<float> parciales)
         {
             this.idEstudiante = idEstudiante;
             this.quices = quices;

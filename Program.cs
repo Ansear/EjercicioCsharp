@@ -16,7 +16,7 @@ internal class Program
             Console.WriteLine("3. Mostrar informacion Estudiantes");
             Console.WriteLine("4. Mostrar notas finales del Estudiante");
             Console.WriteLine("5. Salir");
-            //try{
+            try{
                 val = Convert.ToInt16(Console.ReadLine());
                 switch (val)
                 {
@@ -67,11 +67,11 @@ internal class Program
                         Console.ReadLine();
                         break;
                 }
-            // }catch(FormatException){
-            //     Console.Clear();
-            //     Console.WriteLine("Dato ingresado invalido");
-            //     Console.ReadLine();
-            // }
+            }catch(FormatException){
+                Console.Clear();
+                Console.WriteLine("Dato ingresado invalido");
+                Console.ReadLine();
+            }
         } while (val != 5);
     }
 
@@ -84,14 +84,34 @@ internal class Program
         {
             Console.WriteLine("Ingrese Id del Estudiante");
             string ide = Console.ReadLine();
-            if(ide.Length>0 && ide.Length<=15){
-                estudiant.Id = ide;
-                notasEst.IdEstudiante = ide;
-                ban = false;
+            ban = false;
+            if(estudiantes.Count != 0){
+                Estudiante r = estudiantes.Where(e => e.Id == ide).FirstOrDefault();
+                if(r == null){
+                    if(ide.Length>0 && ide.Length<=15){
+                        estudiant.Id = ide;
+                        notasEst.IdEstudiante = ide;
+                        ban = false;
+                    }else{
+                        Console.Clear();
+                        Console.WriteLine("Id del Estudiante mayor a 15 caracteres");
+                        ban = true;
+                    }
+                }else{
+                    Console.Clear();
+                    Console.WriteLine("El id ya se encuentra registrado");
+                    ban = true;
+                    }
             }else{
-                Console.Clear();
-                Console.WriteLine("Id del Estudiante mayor a 15 caracteres");
-                ban = true;
+                if(ide.Length>0 && ide.Length<=15){
+                        estudiant.Id = ide;
+                        notasEst.IdEstudiante = ide;
+                        ban = false;
+                    }else{
+                        Console.Clear();
+                        Console.WriteLine("Id del Estudiante mayor a 15 caracteres");
+                        ban = true;
+                    }
             }
         } while (ban);
         do
@@ -187,38 +207,55 @@ internal class Program
 
     public static void ShowStudents(List<Estudiante> estudiantes, List<NotasEstu> notas){
         Console.Clear();
-        Console.WriteLine("{0,-28} {1,-25} {2,-12} {3,-12} {4,-30}","Codigo","Nombre","Quices","Trabajos","Parciales");
-        Console.WriteLine("{0,55} {1,2} {2,2} {3,-5} {4,3} {5,-8} {6,2} {7,2} {8,2}","Q1","Q2","Q3","Q4","T1","T2","P1","P2","P3");
+        Console.WriteLine("{0,-28} {1,13} {2,32} {3,12} {4,12}","Codigo","Nombre","Quices","Trabajos","Parciales");
+        Console.WriteLine("{0,68} {1,2} {2,2} {3,-5} {4,3} {5,-8} {6,2} {7,2} {8,2}","Q1","Q2","Q3","Q4","T1","T2","P1","P2","P3");
+        Console.WriteLine(" ");
         foreach (Estudiante est in estudiantes)
         {
-            List<int> q = new List<int>(4);
-            List<int> t = new List<int>(2);
-            List<int> p = new List<int>(3);
+            float[] q = new float[4]{0,0,0,0};
+            float[] t = new float[2]{0,0};
+            float[] p = new float[3]{0,0,0};
             foreach (NotasEstu item in notas)
             {
                 if(item.IdEstudiante == est.Id){
-                    foreach (int e in item.Quices)
-                    {
-                        q.Add(e);
-                    }
-                    foreach (int e in item.Trabajos)
-                    {
-                        t.Add(e);
-                    }
-                    foreach (int e in item.Parciales)
-                    {
-                        t.Add(e);
-                    }
+                    
+                        if(item.Quices.Count != 0){
+                            for(int i=0; i<item.Quices.Count; i++){
+                                    q[i]= item.Quices[i];
+                            }
+                        }
+                        if(item.Trabajos.Count != 0){
+                            for(int i=0; i<item.Trabajos.Count; i++){
+                                    t[i]= item.Trabajos[i];
+                            }
+                        }
+                        if(item.Parciales.Count != 0){
+                            for(int i=0; i<item.Parciales.Count; i++){
+                                    p[i]= item.Parciales[i];
+                            }
+                            
+                        }
                 }
             }
-            Console.WriteLine("{0,} {1,}{2,} {3,}{4,} {5,} {0,} {1,}{2,} {3,}{4,} {5,}",est.Id,q[0],q[1],q[2],q[3],t[0],t[1],p[0],p[1],p[2]);
+            Console.WriteLine("{0,-18} {1,40} {2,8}{3,3}{4,3}{5,3} {6,6}{7,3} {8,8}{9,3}{10,3}",
+            est.Id,
+            est.Nombre,
+            q[0]==0?"Np":q[0],
+            q[1]==0?"Np":q[1],
+            q[2]==0?"Np":q[2],
+            q[3]==0?"Np":q[3],
+            t[0]==0?"Np":t[0],
+            t[1]==0?"Np":t[1],
+            p[0]==0?"Np":p[0],
+            p[1]==0?"Np":p[1],
+            p[2]==0?"Np":p[2]);
         }
         Console.ReadKey();
     }
 
     public static void AddQuices(NotasEstu notasQ){
-        if(notasQ.Quices.Count()<4){
-                int toNo = notasQ.Quices.Count();
+        if(notasQ.Quices.Count<4){
+                int toNo = notasQ.Quices.Count;
                 Console.WriteLine($"Agregar notas del Quiz {toNo+1}");
                 notasQ.Quices.Add(Convert.ToInt16(Console.ReadLine()));
         }else{
