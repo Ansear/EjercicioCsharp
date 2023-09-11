@@ -11,11 +11,14 @@ internal class Program
         do
         {
             Console.Clear();
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
+            Console.WriteLine("|*************Menu Principal*************|");
             Console.WriteLine("1. Agregar Estudiante");
             Console.WriteLine("2. Agregar notas al Estudiante");
             Console.WriteLine("3. Mostrar informacion Estudiantes");
             Console.WriteLine("4. Mostrar notas finales del Estudiante");
             Console.WriteLine("5. Salir");
+            Console.WriteLine("|****************************************|");
             try{
                 val = Convert.ToInt16(Console.ReadLine());
                 switch (val)
@@ -43,12 +46,14 @@ internal class Program
                         break;
                     default:
                         Console.Clear();
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
                         Console.WriteLine("Valor Invalidado");
                         Console.ReadLine();
                         break;
                 }
             }catch(FormatException){
                 Console.Clear();
+                Console.ForegroundColor = ConsoleColor.DarkRed;
                 Console.WriteLine("Dato ingresado invalido");
                 Console.ReadLine();
             }
@@ -61,6 +66,8 @@ internal class Program
         NotasEstu notasEst = new NotasEstu();
         do
         {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("|************Registro de Estudiantes************|");
             Console.WriteLine("Ingrese Id del Estudiante");
             string ide = Console.ReadLine();
             ban = false;
@@ -73,11 +80,13 @@ internal class Program
                         ban = false;
                     }else{
                         Console.Clear();
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
                         Console.WriteLine("Id del Estudiante mayor a 15 caracteres");
                         ban = true;
                     }
                 }else{
                     Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
                     Console.WriteLine("El id ya se encuentra registrado");
                     ban = true;
                     }
@@ -88,6 +97,7 @@ internal class Program
                         ban = false;
                     }else{
                         Console.Clear();
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
                         Console.WriteLine("Id del Estudiante mayor a 15 caracteres");
                         ban = true;
                     }
@@ -103,6 +113,7 @@ internal class Program
                 ban= false;
             }else{
                 Console.Clear();
+                Console.ForegroundColor = ConsoleColor.DarkRed;
                 Console.WriteLine("Nombre mayor a 40 caracteres, intente nuevamente");
                 ban = true;
             }
@@ -117,6 +128,7 @@ internal class Program
                 ban = false;
             }else{
                 Console.Clear();
+                Console.ForegroundColor = ConsoleColor.DarkRed;
                 Console.WriteLine("Email mayor a 40 caracteres, intente nuevamente");
                 ban = true;
             }
@@ -132,6 +144,7 @@ internal class Program
                 ban = false;
             }else{
                 Console.Clear();
+                Console.ForegroundColor = ConsoleColor.DarkRed;
                 Console.WriteLine("Direccion mayor a 35 caracteres, intente nuevamente");
                 ban = true;
             }
@@ -141,6 +154,8 @@ internal class Program
     }
     public static void AddNotas(List<NotasEstu> p1){
         Console.Clear();
+        Console.ForegroundColor = ConsoleColor.White;
+        Console.WriteLine("|************Menu de Registro de notas************|");
         Console.WriteLine("Ingrese el id del estudiante: ");
         string idBusca = Console.ReadLine();
         bool ban = false;
@@ -200,9 +215,11 @@ internal class Program
                 if(v>0 && v<=5){
                     notasQ.Quices.Add(v);
                 }else{
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
                     Console.WriteLine("Nota invalida");
                 }
         }else{
+            Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine("Las notas de Quices ya estan completas");
         }
     }
@@ -214,9 +231,11 @@ internal class Program
                 if(v>0 && v<=5){
                     notasQ.Trabajos.Add(v);
                 }else{
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
                     Console.WriteLine("Nota invalida");
                 }
         }else{
+            Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine("Las notas de Trabajos ya estan completas");
         }
     }
@@ -228,9 +247,11 @@ internal class Program
                 if(v>0 && v<=5){
                     notasQ.Parciales.Add(v);
                 }else{
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
                     Console.WriteLine("Nota invalida");
                 }
         }else{
+            Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine("Las notas de Parciales ya estan completas");
         }
     }
@@ -283,6 +304,7 @@ internal class Program
             Console.WriteLine();
             Console.WriteLine("Np = No Presento");
         }else{
+            Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine("En el momento no hay estudiantes registrados");
         }
         Console.ReadKey();
@@ -345,6 +367,7 @@ internal class Program
                 to.ToString("F1"));
             }
         }else{
+            Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine("En el momento no hay estudiantes registrados");
         }
         Console.ReadKey();
