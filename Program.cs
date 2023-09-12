@@ -319,9 +319,9 @@ internal class Program
                 float[] q = new float[4]{0,0,0,0};
                 float[] t = new float[2]{0,0};
                 float[] p = new float[3]{0,0,0};
-                float Tq = 0;
-                float Tt = 0;
-                float Tp = 0;
+                float Tq = 0.0f;
+                float Tt = 0.0f;
+                float Tp = 0.0f;
                 foreach (NotasEstu item in notas)
                 {
                     if(item.IdEstudiante == est.Id){
@@ -356,8 +356,7 @@ internal class Program
                 {
                     Tp+=item;
                 }
-
-                float to = (Tp+Tq+Tt)/3;
+                float to = ((Tp/3)+(Tq/4)+(Tt/2))/3;
                 Console.WriteLine("{0,-18} {1,40}| {2,12}| {3,12}| {4,12}| {5,15}|",
                 est.Id,
                 est.Nombre,
