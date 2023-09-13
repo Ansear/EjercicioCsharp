@@ -54,16 +54,13 @@ internal class Program
                     bool fligRepor = true;
                         while (fligRepor)
                         {
-                            Console.Clear();
-                            int opcRegis = MisFunciones.Reportes();
-                            switch(opcRegis){
+                            int opcRepor = MisFunciones.Reportes();
+                            switch(opcRepor){
                                 case 1: 
                                     Console.Clear();
+                                    estudiant.ShowStudents(estudiantes);
                                     break;
                                 case 2:
-                                    Console.Clear();
-                                    break;
-                                case 3:
                                     Console.Clear();
                                     break;
                                 case 0:

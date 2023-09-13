@@ -235,4 +235,53 @@ namespace ejercicio1.Entities;
             Console.ReadKey();
         }
     }
+
+    public void ShowStudents(List<Estudiante> lts){
+        Console.Clear();
+        Console.WriteLine("{0,-28} {1,13}{2,33} {3,18} {4,18}","Codigo","Nombre","Quices","Trabajos","Parciales");
+        Console.WriteLine("{0,65}{1,5}{2,5}{3,5} {4,8}{5,5} {6,10}{7,5}{8,5}","Q1","Q2","Q3","Q4","T1","T2","P1","P2","P3");
+        Console.WriteLine(" ");
+        if(lts.Count != 0){
+            foreach (Estudiante est in lts)
+            {
+                float[] q = new float[4]{0,0,0,0};
+                float[] t = new float[2]{0,0};
+                float[] p = new float[3]{0,0,0};                    
+                if(est.Quices.Count != 0){
+                    for(int i=0; i<est.Quices.Count; i++){
+                            q[i]= est.Quices[i];
+                    }
+                }
+                if(est.Trabajos.Count != 0){
+                    for(int i=0; i<est.Trabajos.Count; i++){
+                            t[i]= est.Trabajos[i];
+                    }
+                }
+                if(est.Parciales.Count != 0){
+                    for(int i=0; i<est.Parciales.Count; i++){
+                            p[i]= est.Parciales[i];
+                    }
+                    
+                }
+                Console.WriteLine("{0,-18}{1,40}{2,8}|{3,4}|{4,4}|{5,4}| {6,6}|{7,4}| {8,8}|{9,4}|{10,4}|",
+                est.Id,
+                est.Nombre,
+                q[0]==0?"Np":q[0],
+                q[1]==0?"Np":q[1],
+                q[2]==0?"Np":q[2],
+                q[3]==0?"Np":q[3],
+                t[0]==0?"Np":t[0],
+                t[1]==0?"Np":t[1],
+                p[0]==0?"Np":p[0],
+                p[1]==0?"Np":p[1],
+                p[2]==0?"Np":p[2]);
+            }
+            Console.WriteLine();
+            Console.WriteLine("Np = No Presento");
+        }else{
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine("En el momento no hay estudiantes registrados");
+        }
+        Console.ReadKey();
+    }
 }
