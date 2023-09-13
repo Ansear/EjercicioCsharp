@@ -26,3 +26,6 @@ C:\Users\sebas\Documents\Programacion\Campus\Csharp\EjercicioCsharp\obj\Debug\ne
 C:\Users\sebas\Documents\Programacion\Campus\Csharp\EjercicioCsharp\obj\Debug\net7.0\ejercicio1.pdb
 C:\Users\sebas\Documents\Programacion\Campus\Csharp\EjercicioCsharp\obj\Debug\net7.0\ejercicio1.genruntimeconfig.cache
 C:\Users\sebas\Documents\Programacion\Campus\Csharp\EjercicioCsharp\obj\Debug\net7.0\ref\ejercicio1.dll
+C:\Users\APM02-40\Documents\Csharp\ejercicio1\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\Users\APM02-40\Documents\Csharp\ejercicio1\obj\Debug\net7.0\ejercicio1.csproj.AssemblyReference.cache
+C:\Users\APM02-40\Documents\Csharp\ejercicio1\obj\Debug\net7.0\ejercicio1.csproj.CopyComplete

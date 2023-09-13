@@ -1,0 +1,27 @@
+[
+  {
+    "Id": "123",
+    "Nombre": "juan",
+    "Email": "kk",
+    "Edad": 12,
+    "Direccion": "ds",
+    "Quices": [
+      4.0,
+      3.3
+    ],
+    "Trabajos": [
+      5.0
+    ],
+    "Parciales": []
+  },
+  {
+    "Id": "1234",
+    "Nombre": "lucas",
+    "Email": "emailLucas",
+    "Edad": 13,
+    "Direccion": "direccion lucas",
+    "Quices": [],
+    "Trabajos": [],
+    "Parciales": []
+  }
+]
