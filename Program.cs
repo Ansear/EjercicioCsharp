@@ -1,4 +1,5 @@
-﻿using ejercicio1;
+﻿using System.Reflection.Metadata.Ecma335;
+using ejercicio1;
 using ejercicio1.Entities;
 using EjercicioCsharp.Entities;
 
@@ -39,13 +40,16 @@ internal class Program
                         {
                             Console.Clear();
                             int opcNotas = MisFunciones.MenuNotas();
-                            if(opcNotas != 0)
-                            {
-                                estudiant.AddNotas(estudiantes, opcNotas);
-                                MisFunciones.SaveData(estudiantes);
-                            }else
-                            {
-                                fligNotas = false;
+                            if(opcNotas>=0 && opcNotas<=3){
+                                if(opcNotas != 0){
+                                    estudiant.AddNotas(estudiantes, opcNotas);
+                                    MisFunciones.SaveData(estudiantes);
+                                }else{
+                                    fligNotas = false;
+                                }
+                            }else{
+                                Console.WriteLine("Opcion ingresada invalida...Enter para continuar");
+                                Console.ReadKey();
                             }
 
                         }

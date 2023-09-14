@@ -144,79 +144,93 @@ namespace ejercicio1.Entities;
         Console.ForegroundColor = ConsoleColor.White;
         Console.WriteLine("|************Menu de Registro de notas************|");
         Console.WriteLine("Ingrese el id del estudiante: ");
-        string idBusca = Console.ReadLine();
+            string idBusca;
+        try
+        {
+            idBusca = Console.ReadLine();
+        }
+        catch (NullReferenceException)
+        {
+            Console.Clear();
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine("Dato ingresado invalido");
+                Console.ReadLine();
+            throw;
+        }
         Estudiante alumno = lst.FirstOrDefault(st => st.Id.Equals(idBusca));
-       
-            if(alumno.Id == idBusca){
-                Console.WriteLine("Por favor ingrese la nota del: ");
-                switch (opcion)
-                {
-                    case 1:
-                                if(alumno.Quices.Count<4)
-                                {
-                                        Console.WriteLine("Agregar notas del Quiz {0}, de 0 a 5,0",alumno.Quices.Count+1);
+        if(alumno!=null){
+            
+                    if(alumno.Id == idBusca){
+                        Console.WriteLine("Por favor ingrese la nota del: ");
+                        switch (opcion)
+                        {
+                            case 1:
+                                        if(alumno.Quices.Count<4)
+                                        {
+                                                Console.WriteLine("Agregar notas del Quiz {0}, de 0 a 5,0",alumno.Quices.Count+1);
+                                                float v = float.Parse(Console.ReadLine());
+                                                if(v>0 && v<=5){
+                                                    alumno.Quices.Add(v);
+                                                }else{
+                                                    Console.ForegroundColor = ConsoleColor.DarkRed;
+                                                    Console.WriteLine("Nota invalida");
+                                                }
+                                        }else
+                                        {
+                                            Console.Clear();
+                                            Console.ForegroundColor = ConsoleColor.DarkRed;
+                                            Console.WriteLine("Las notas de Quices ya estan completas maximo 4 notas");
+                                            Console.ReadKey();
+                                        }
+                                    break;
+                            case 2:
+                                    if(alumno.Trabajos.Count<2){
+                                        Console.WriteLine("Agregar notas del Trabajo {0}, de 0 a 5,0",alumno.Trabajos.Count+1);
                                         float v = float.Parse(Console.ReadLine());
                                         if(v>0 && v<=5){
-                                            alumno.Quices.Add(v);
+                                            alumno.Trabajos.Add(v);
                                         }else{
                                             Console.ForegroundColor = ConsoleColor.DarkRed;
                                             Console.WriteLine("Nota invalida");
                                         }
-                                }else
-                                {
-                                    Console.Clear();
-                                    Console.ForegroundColor = ConsoleColor.DarkRed;
-                                    Console.WriteLine("Las notas de Quices ya estan completas maximo 4 notas");
-                                    Console.ReadKey();
-                                }
-                            break;
-                    case 2:
-                            if(alumno.Trabajos.Count<2){
-                                Console.WriteLine("Agregar notas del Trabajo {0}, de 0 a 5,0",alumno.Trabajos.Count+1);
-                                float v = float.Parse(Console.ReadLine());
-                                if(v>0 && v<=5){
-                                    alumno.Trabajos.Add(v);
-                                }else{
-                                    Console.ForegroundColor = ConsoleColor.DarkRed;
-                                    Console.WriteLine("Nota invalida");
-                                }
-                            }else{
-                                Console.Clear();
-                                Console.ForegroundColor = ConsoleColor.DarkRed;
-                                Console.WriteLine("Las notas de Trabajos ya estan completas, maximo 2 notas");
-                                Console.ReadKey();
-                            }
-                            break;
-                    case 3:
-                            if(alumno.Parciales.Count<3){
-                                Console.WriteLine("Agregar notas del Parciale {0}, de 0 a 5,0",alumno.Parciales.Count+1);
-                                float v = float.Parse(Console.ReadLine());
-                                if(v>0 && v<=5){
-                                    alumno.Parciales.Add(v);
-                                }else{
-                                    Console.ForegroundColor = ConsoleColor.DarkRed;
-                                    Console.WriteLine("Nota invalida");
-                                }
-                            }else{
-                                Console.Clear();
-                                Console.ForegroundColor = ConsoleColor.DarkRed;
-                                Console.WriteLine("Las notas de Parciales ya estan completas, maximo 3 notas");
-                                Console.ReadKey();
-                            }
-                            break;
-                    default:
-                        Console.WriteLine("Valor ingresado invalido");
-                        break;
-                }  
-                int idx = lst.FindIndex(x => x.Id.Equals(idBusca));
-                lst[idx] = alumno;
-            }
-            else{
+                                    }else{
+                                        Console.Clear();
+                                        Console.ForegroundColor = ConsoleColor.DarkRed;
+                                        Console.WriteLine("Las notas de Trabajos ya estan completas, maximo 2 notas");
+                                        Console.ReadKey();
+                                    }
+                                    break;
+                            case 3:
+                                    if(alumno.Parciales.Count<3){
+                                        Console.WriteLine("Agregar notas del Parciale {0}, de 0 a 5,0",alumno.Parciales.Count+1);
+                                        float v = float.Parse(Console.ReadLine());
+                                        if(v>0 && v<=5){
+                                            alumno.Parciales.Add(v);
+                                        }else{
+                                            Console.ForegroundColor = ConsoleColor.DarkRed;
+                                            Console.WriteLine("Nota invalida");
+                                        }
+                                    }else{
+                                        Console.Clear();
+                                        Console.ForegroundColor = ConsoleColor.DarkRed;
+                                        Console.WriteLine("Las notas de Parciales ya estan completas, maximo 3 notas");
+                                        Console.ReadKey();
+                                    }
+                                    break;
+                            default:
+                                Console.WriteLine("Valor ingresado invalido");
+                                break;
+                        }  
+                    int idx = lst.FindIndex(x => x.Id.Equals(idBusca));
+                    lst[idx] = alumno;
+                    }
+            }else{
                 Console.Clear();
                 Console.WriteLine("No se encontro el id ingresado");
                 Console.ReadKey();
             }
-    }
+    }   
+    
 
     public void RemoveStu(List<Estudiante> lts)
     {
