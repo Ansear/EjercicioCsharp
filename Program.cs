@@ -59,25 +59,39 @@ internal class Program
                         while (fligRepor)
                         {
                             int opcRepor = MisFunciones.Reportes();
-                            switch(opcRepor){
-                                case 1: 
-                                    Console.Clear();
-                                    estudiant.ShowStudents(estudiantes);
-                                    break;
-                                case 2:
-                                    Console.Clear();
-                                    estudiant.ShowStudentsDef(estudiantes);
-                                    break;
-                                case 0:
-                                    Console.Clear();
-                                    fligRepor = false;
-                                    break;
-                                default:
-                                    Console.Clear();    
-                                    Console.WriteLine("Valo ingresadi invalido");
-                                    Console.Write("Presion enter para continuar....");
-                                    Console.ReadKey();
-                                    break;
+                            if(opcRepor>=0 && opcRepor<=4){
+                                switch(opcRepor){
+                                    case 1: 
+                                        Console.Clear();
+                                        estudiant.ShowStudents(estudiantes);
+                                        break;
+                                    case 2:
+                                        Console.Clear();
+                                        estudiant.ShowStudentsDef(estudiantes);
+                                        break;
+                                    case 3:
+                                        Console.Clear();
+                                        estudiant.FindOne(estudiantes);
+                                        break;
+                                    case 4:
+                                        Console.Clear();
+                                        estudiant.FindOneDef(estudiantes);
+                                        break;
+                                    case 0:
+                                        Console.Clear();
+                                        fligRepor = false;
+                                        break;
+                                    default:
+                                        Console.Clear();    
+                                        Console.WriteLine("Valo ingresado invalido");
+                                        Console.Write("Presion enter para continuar....");
+                                        Console.ReadKey();
+                                        break;
+                                }
+                            }else{
+                                Console.WriteLine("Valo ingresado invalido");
+                                Console.Write("Presion enter para continuar....");
+                                Console.ReadKey();
                             }
                         }
                         break;

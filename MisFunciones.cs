@@ -27,6 +27,8 @@ namespace ejercicio1;
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("1.Ver notas del grupo");
             Console.WriteLine("2.Ver notas finales");
+            Console.WriteLine("3.Ver notas de un estudiante");
+            Console.WriteLine("4.Ver notas finales de un estudiante");
             Console.WriteLine("0. Salir al menu principal");
             return Convert.ToInt16(Console.ReadLine());
         }

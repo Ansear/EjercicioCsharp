@@ -2,9 +2,9 @@ namespace EjercicioCsharp.Entities;
 
     public class NotasEstu
     {
-        private List<float> quices = new List<float>(4);
-        private List<float> trabajos = new List<float>(2);
-        private List<float> parciales = new List<float>(3);
+        private List<float> quices = new List<float>{0,0,0,0};
+        private List<float> trabajos = new List<float>{0,0};
+        private List<float> parciales = new List<float>{0,0,0};
         public List<float> Quices{
             get{ return quices;}
             set{ quices = value;}

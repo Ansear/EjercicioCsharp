@@ -258,9 +258,9 @@ namespace ejercicio1.Entities;
         if(lts.Count != 0){
             foreach (Estudiante est in lts)
             {
-                float[] q = new float[4]{0,0,0,0};
-                float[] t = new float[2]{0,0};
-                float[] p = new float[3]{0,0,0};                    
+                float[] q = new float[4];
+                float[] t = new float[2];
+                float[] p = new float[3];                    
                 if(est.Quices.Count != 0){
                     for(int i=0; i<est.Quices.Count; i++){
                             q[i]= est.Quices[i];
@@ -306,9 +306,9 @@ namespace ejercicio1.Entities;
         if(lts.Count != 0){
             foreach (Estudiante est in lts)
             {
-                float[] q = new float[4]{0,0,0,0};
-                float[] t = new float[2]{0,0};
-                float[] p = new float[3]{0,0,0};
+                float[] q = new float[4];
+                float[] t = new float[2];
+                float[] p = new float[3];
                 float Tq = 0.0f;
                 float Tt = 0.0f;
                 float Tp = 0.0f;
@@ -360,5 +360,83 @@ namespace ejercicio1.Entities;
             Console.WriteLine("En el momento no hay estudiantes registrados");
         }
         Console.ReadKey();
+    }
+
+    public void FindOne(List<Estudiante> lts){
+        Console.Clear();
+        Console.WriteLine("Ingrese el Id del estudiante a buscar: ");
+        string idSearch = Console.ReadLine();
+        Estudiante studentToSearch = lts.FirstOrDefault(st => st.Id == idSearch );
+        if(studentToSearch != null){
+            float[] q = {0,0,0,0} ;
+            float[] t = {0,0};
+            float[] p = {0,0,0} ;
+            
+            Console.WriteLine("{0,-28} {1,13}{2,33} {3,18} {4,18}","Codigo","Nombre","Quices","Trabajos","Parciales");
+            Console.WriteLine("{0,65}{1,5}{2,5}{3,5} {4,8}{5,5} {6,10}{7,5}{8,5}","Q1","Q2","Q3","Q4","T1","T2","P1","P2","P3");
+            Console.WriteLine(" ");
+            
+            if(studentToSearch.Quices.Count != 0){
+                for(int i=0; i<studentToSearch.Quices.Count; i++){
+                        q[i]= studentToSearch.Quices[i];
+                }
+            }
+            if(studentToSearch.Trabajos.Count != 0){
+                for(int i=0; i<studentToSearch.Trabajos.Count; i++){
+                        t[i]= studentToSearch.Trabajos[i];
+                }
+            }
+            if(studentToSearch.Parciales.Count != 0){
+                for(int i=0; i<studentToSearch.Parciales.Count; i++){
+                        p[i]= studentToSearch.Parciales[i];
+                }
+                
+            }
+            Console.WriteLine("{0,-18}{1,40}{2,8}|{3,4}|{4,4}|{5,4}| {6,6}|{7,4}| {8,8}|{9,4}|{10,4}|",
+            studentToSearch.Id,
+            studentToSearch.Nombre,
+            q[0]==0?"Np":q[0],
+            q[1]==0?"Np":q[1],
+            q[2]==0?"Np":q[2],
+            q[3]==0?"Np":q[3],
+            t[0]==0?"Np":t[0],
+            t[1]==0?"Np":t[1],
+            p[0]==0?"Np":p[0],
+            p[1]==0?"Np":p[1],
+            p[2]==0?"Np":p[2]);
+            Console.WriteLine("Np = No Presento");
+            Console.ReadKey();
+        }else{
+            Console.WriteLine($"no se encontro el estudiante con el Id: {studentToSearch}");
+        }
+
+        
+    }
+    public void FindOneDef(List<Estudiante> lts){
+        Console.Clear();
+        Console.WriteLine("Ingrese el Id del estudiante a buscar: ");
+        string idSearch = Console.ReadLine();
+        Estudiante studentToSearch = lts.FirstOrDefault(st => st.Id == idSearch );
+        if(studentToSearch != null){
+            float Tq = 0.0f;
+            float Tt = 0.0f;
+            float Tp = 0.0f;
+            Console.WriteLine("{0,-28} {1,13} {2,33} {3,15} {4,15} {5,15}","Codigo","Nombre","Def Quices","Def Trabajos","Def Parciales","Nota Final");
+            Console.WriteLine(" ");
+            studentToSearch.Quices.ForEach(e => Tq+=e);
+            studentToSearch.Quices.ForEach(e => Tt+=e);
+            studentToSearch.Quices.ForEach(e => Tp+=e);
+            float to = ((Tp/3)+(Tq/4)+(Tt/2))/3;
+            Console.WriteLine("{0,-18} {1,40}| {2,12}| {3,12}| {4,12}| {5,15}|",
+            studentToSearch.Id,
+            studentToSearch.Nombre,
+            (Tq/4).ToString("F1"),
+            (Tt/2).ToString("F1"),
+            (Tp/3).ToString("F1"),
+            to.ToString("F1"));
+            Console.ReadKey();
+        }else{
+            Console.WriteLine($"no se encontro el estudiante con el Id: {studentToSearch}");
+        }
     }
 }
