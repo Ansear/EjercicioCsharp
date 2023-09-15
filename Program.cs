@@ -66,6 +66,7 @@ internal class Program
                                     break;
                                 case 2:
                                     Console.Clear();
+                                    estudiant.ShowStudentsDef(estudiantes);
                                     break;
                                 case 0:
                                     Console.Clear();
@@ -104,70 +105,5 @@ internal class Program
             }
         } while (val != 5);
     }
-    
-
-    
-    // public static void ShowStudentsDef(List<Estudiante> estudiantes){
-    //     Console.Clear();
-    //     Console.WriteLine("{0,-28} {1,13} {2,33} {3,15} {4,15} {5,15}","Codigo","Nombre","Def Quices","Def Trabajos","Def Parciales","Nota Final");
-    //     Console.WriteLine(" ");
-    //     if(estudiantes.Count != 0){
-    //         foreach (Estudiante est in estudiantes)
-    //         {
-    //             float[] q = new float[4]{0,0,0,0};
-    //             float[] t = new float[2]{0,0};
-    //             float[] p = new float[3]{0,0,0};
-    //             float Tq = 0.0f;
-    //             float Tt = 0.0f;
-    //             float Tp = 0.0f;
-    //             foreach (NotasEstu item in notas)
-    //             {
-    //                 if(item.IdEstudiante == est.Id){
-                        
-    //                         if(item.Quices.Count != 0){
-    //                             for(int i=0; i<item.Quices.Count; i++){
-    //                                     q[i]= item.Quices[i];
-    //                             }
-    //                         }
-    //                         if(item.Trabajos.Count != 0){
-    //                             for(int i=0; i<item.Trabajos.Count; i++){
-    //                                     t[i]= item.Trabajos[i];
-    //                             }
-    //                         }
-    //                         if(item.Parciales.Count != 0){
-    //                             for(int i=0; i<item.Parciales.Count; i++){
-    //                                     p[i]= item.Parciales[i];
-    //                             }
-                                
-    //                         }
-    //                 }
-    //             }
-    //             foreach (float item in q)
-    //             {
-    //                 Tq+=item;
-    //             }
-    //             foreach (float item in t)
-    //             {
-    //                 Tt+=item;
-    //             }
-    //             foreach (float item in p)
-    //             {
-    //                 Tp+=item;
-    //             }
-    //             float to = ((Tp/3)+(Tq/4)+(Tt/2))/3;
-    //             Console.WriteLine("{0,-18} {1,40}| {2,12}| {3,12}| {4,12}| {5,15}|",
-    //             est.Id,
-    //             est.Nombre,
-    //             (Tq/4).ToString("F1"),
-    //             (Tt/2).ToString("F1"),
-    //             (Tp/3).ToString("F1"),
-    //             to.ToString("F1"));
-    //         }
-    //     }else{
-    //         Console.ForegroundColor = ConsoleColor.DarkRed;
-    //         Console.WriteLine("En el momento no hay estudiantes registrados");
-    //     }
-    //     Console.ReadKey();
-    // }
     
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3CNwxVGYTRmw/G8dBFlPmE0ZYd48ii1V4hCJPi4YueEdOGkRcnYi4j9V0aRN8TMqVripqydLW579O77No6uytA==",
+  "dgSpecHash": "uD+2Ptxo1ELhcrFKVPmJy61iY51c5Xy0439yvvy9jSTSupQkzZfsIM7FpjUYnojzwcCa96teDl6KXnMR1Wih5g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\sebas\\Documents\\Programacion\\Campus\\Csharp\\EjercicioCsharp\\ejercicio1.csproj",
+  "projectFilePath": "c:\\Users\\sebas\\Documents\\Programacion\\Campus\\Csharp\\EjercicioCsharp\\ejercicio1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\sebas\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
   ],
